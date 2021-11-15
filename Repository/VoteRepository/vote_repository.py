@@ -15,6 +15,6 @@ class VoteRepository(IVoteRepository):
         result: Vote = self.build() \
             .filter(Vote.user_id == userid)
         if not result:
-            raise NoResult("No credit at this price")
+            raise NoResult("No votes for this userid")
         return result
 
