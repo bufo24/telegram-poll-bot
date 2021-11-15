@@ -1,7 +1,10 @@
+from sqlalchemy.sql.functions import user
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 from Models.vote import Vote
 from config import token
+from Repository.i_unit_of_work import IUnitOfWork
+from Repository.unit_of_work import UnitOfWork
 
 def is_valid_meme(meme_id) -> bool:
     if (meme_id < 150):
@@ -10,6 +13,9 @@ def is_valid_meme(meme_id) -> bool:
 
 def add_vote(user_id, meme_id, points):
     print("add vote for user %d meme %d points %d" % (user_id, meme_id, points))
+    vote = Vote(user_id, meme_id, points)
+    unit_of_work.get_vote_repository().add(vote)
+    unit_of_work.complete()
 
 # /vote 10 22 14
 # where the numbers are the meme IDs
@@ -39,6 +45,7 @@ def vote_command(update: Update, context: CallbackContext) -> list:
         except:
             update.message.reply_text(explanation_text)
 
+unit_of_work: IUnitOfWork = UnitOfWork()
 updater = Updater(token)
 
 updater.dispatcher.add_handler(CommandHandler('vote', vote_command))
