@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, DateTime
+from sqlalchemy import Column, Integer
 
-from Repository.database import Base
+from VoteBot.Repository.database import Base
 
 
 class Vote(Base):

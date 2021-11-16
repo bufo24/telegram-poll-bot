@@ -1,8 +1,6 @@
-import datetime
-
-from Exceptions.database_exceptions import NoResult
-from Models.vote import Vote
-from Repository.VoteRepository.i_vote_repository import IVoteRepository
+from VoteBot.Exceptions.database_exceptions import NoResult
+from VoteBot.Models.vote import Vote
+from VoteBot.Repository.VoteRepository.i_vote_repository import IVoteRepository
 
 
 class VoteRepository(IVoteRepository):

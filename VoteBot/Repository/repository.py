@@ -1,9 +1,9 @@
 from typing import TypeVar, Type
 from sqlalchemy.orm import Session
 
-from Exceptions.database_exceptions import NoResult
-from Repository.database import Base
-from Repository.i_repository import IRepository
+from VoteBot.Exceptions.database_exceptions import NoResult
+from VoteBot.Repository.database import Base
+from VoteBot.Repository.i_repository import IRepository
 
 
 ModelType = TypeVar("ModelType", bound=Base)
@@ -40,7 +40,7 @@ class Repository(IRepository[ModelType]):
             raise NoResult("No result was found.")
         return result
 
-    def all(self) -> [ModelType]:
+    def all(self) -> list[ModelType]:
         return self.build().all()
 
     def add(self, item: ModelType):
@@ -50,6 +50,6 @@ class Repository(IRepository[ModelType]):
     def remove(self, item: ModelType):
         self._session.delete(item)
 
-    def remove_range(self, items: [ModelType]):
+    def remove_range(self, items: list[ModelType]):
         for item in items:
             self._session.delete(item)

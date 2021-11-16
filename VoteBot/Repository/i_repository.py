@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Generic, TypeVar
 
-from Repository.database import Base
+from VoteBot.Repository.database import Base
 
 ModelType = TypeVar("ModelType", bound=Base)
 
@@ -12,7 +12,7 @@ class IRepository(ABC, Generic[ModelType]):
         raise NotImplementedError
 
     @abstractmethod
-    def all(self) -> [ModelType]:
+    def all(self) -> list[ModelType]:
         raise NotImplementedError
 
     @abstractmethod
@@ -24,5 +24,5 @@ class IRepository(ABC, Generic[ModelType]):
         raise NotImplementedError
 
     @abstractmethod
-    def remove_range(self, items: [ModelType]):
+    def remove_range(self, items: list[ModelType]):
         raise NotImplementedError
