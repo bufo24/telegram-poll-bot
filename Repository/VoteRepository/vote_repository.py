@@ -11,10 +11,10 @@ class VoteRepository(IVoteRepository):
         self.Model = Vote
         super().__init__(database)
 
-    def find_votes_by_userid(self, userid: int) -> Vote:
-        result: Vote = self.build() \
-            .filter(Vote.user_id == userid)
+    def find_votes_by_userid(self, userid: int) -> list[Vote]:
+        result: list[Vote] = self.build() \
+            .filter(Vote.user_id == userid) \
+            .all()
         if not result:
             raise NoResult("No votes for this userid")
         return result
-
