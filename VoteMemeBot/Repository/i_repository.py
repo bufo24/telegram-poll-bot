@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Generic, TypeVar
 
-from VoteBot.Repository.database import Base
+from VoteMemeBot.Repository.database import Base
 
 ModelType = TypeVar("ModelType", bound=Base)
 

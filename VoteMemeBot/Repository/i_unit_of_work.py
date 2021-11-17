@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 
-from VoteBot.Repository.VoteRepository.i_vote_repository import IVoteRepository
-from VoteBot.Repository.i_repository import IRepository
+from VoteMemeBot.Repository.VoteRepository.i_vote_repository import IVoteRepository
+from VoteMemeBot.Repository.i_repository import IRepository
+
 
 class IUnitOfWork(ABC):
     @abstractmethod

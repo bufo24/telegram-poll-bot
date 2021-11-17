@@ -1,8 +1,9 @@
-from VoteBot.Models.vote import Vote
-from VoteBot.Repository.VoteRepository.vote_repository import VoteRepository
-from VoteBot.Repository.unit_of_work import UnitOfWork
-from VoteBot.Models.meme import Meme
-from VoteBot.Exceptions.meme_exceptions import *
+from VoteMemeBot.Models.vote import Vote
+from VoteMemeBot.Repository.VoteRepository.vote_repository import VoteRepository
+from VoteMemeBot.Repository.unit_of_work import UnitOfWork
+from VoteMemeBot.Models.meme import Meme
+from VoteMemeBot.Exceptions.meme_exceptions import *
+
 
 class VoteMemeService:
     def __init__(self):
@@ -12,7 +13,7 @@ class VoteMemeService:
         # Check if memes are valid
         for i in votes:
             meme = Meme(i)
-            if (meme.is_valid() == False):
+            if (meme.is_valid() is False):
                 raise InvalidMemeId
         # Add votes
         self.add_vote(user_id, votes[0], 5)

@@ -1,4 +1,5 @@
-from VoteBot.Services.vote_meme_service import VoteMemeService
+from VoteMemeBot.Services.vote_meme_service import VoteMemeService
+
 
 class VoteMemeController:
     def __init__(self):

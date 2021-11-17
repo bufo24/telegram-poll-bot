@@ -7,6 +7,7 @@ Base = declarative_base()
 
 logger = logging.getLogger(__name__)
 
+
 class Database:
     # http://docs.sqlalchemy.org/en/latest/core/engines.html
 

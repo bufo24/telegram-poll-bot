@@ -1,9 +1,9 @@
 from typing import TypeVar, Type
 from sqlalchemy.orm import Session
 
-from VoteBot.Exceptions.database_exceptions import NoResult
-from VoteBot.Repository.database import Base
-from VoteBot.Repository.i_repository import IRepository
+from VoteMemeBot.Exceptions.database_exceptions import NoResult
+from VoteMemeBot.Repository.database import Base
+from VoteMemeBot.Repository.i_repository import IRepository
 
 
 ModelType = TypeVar("ModelType", bound=Base)

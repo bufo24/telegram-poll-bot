@@ -1,7 +1,8 @@
-from VoteBot.bot import VoteBot
+from VoteMemeBot.vote_meme_bot import VoteMemeBot
+
 
 def main():
-    bot: VoteBot = VoteBot()
+    bot: VoteMemeBot = VoteMemeBot()
 
 
 if __name__ == "__main__":

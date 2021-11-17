@@ -1,19 +1,21 @@
-from VoteBot.Controllers.vote_meme_controller import VoteMemeController
+from VoteMemeBot.Controllers.vote_meme_controller import VoteMemeController
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 
 from config import token
 
-class MemeVoteBot:
+
+class VoteMemeBot:
 
     def __init__(self):
         self.vote_meme_controller = VoteMemeController()
+        self.updater = Updater(token)
         self.__start_handlers()
-        updater.start_polling()
-        updater.idle()
+        self.updater.start_polling()
+        self.updater.idle()
 
     def __start_handlers(self):
-        updater.dispatcher.add_handler(CommandHandler('vote', self.vote_command))
+        self.updater.dispatcher.add_handler(CommandHandler('vote', self.vote_command))
 
     # /vote 10 22 14
     # where the numbers are the meme IDs
@@ -36,4 +38,3 @@ class MemeVoteBot:
                 update.message.reply_text(explanation_text)
             update.message.reply_text("Votes submitted!")
 
-updater = Updater(token)
