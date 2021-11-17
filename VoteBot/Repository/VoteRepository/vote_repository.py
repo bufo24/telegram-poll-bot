@@ -4,7 +4,6 @@ from VoteBot.Repository.VoteRepository.i_vote_repository import IVoteRepository
 
 
 class VoteRepository(IVoteRepository):
-
     def __init__(self, database):
         self.Model = Vote
         super().__init__(database)

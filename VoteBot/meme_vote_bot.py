@@ -1,13 +1,13 @@
-from VoteBot.Controllers.message_controller import MessageController
+from VoteBot.Controllers.vote_meme_controller import VoteMemeController
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 
 from config import token
 
-class VoteBot:
+class MemeVoteBot:
 
     def __init__(self):
-        self.message_controller = MessageController()
+        self.vote_meme_controller = VoteMemeController()
         self.__start_handlers()
         updater.start_polling()
         updater.idle()
@@ -31,7 +31,7 @@ class VoteBot:
         else:
             try:
                 votes = [int(i) for i in args]
-                self.message_controller.add_votes(user_id, votes)
+                self.vote_meme_controller.add_votes(user_id, votes)
             except Exception as e:
                 update.message.reply_text(explanation_text)
             update.message.reply_text("Votes submitted!")

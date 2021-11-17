@@ -4,10 +4,9 @@ from VoteBot.Repository.unit_of_work import UnitOfWork
 from VoteBot.Models.meme import Meme
 from VoteBot.Exceptions.meme_exceptions import *
 
-class VoteService:
-
+class VoteMemeService:
     def __init__(self):
-       self.unit_of_work = UnitOfWork()
+        self.unit_of_work = UnitOfWork()
 
     def add_votes(self, user_id, votes: list):
         # Check if memes are valid
