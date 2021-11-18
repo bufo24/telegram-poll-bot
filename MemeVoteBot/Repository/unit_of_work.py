@@ -1,9 +1,9 @@
 from config import DbConfig
-from VoteMemeBot.Repository.VoteRepository.vote_repository import VoteRepository
-from VoteMemeBot.Repository.VoteRepository.i_vote_repository import IVoteRepository
-from VoteMemeBot.Repository.database import Database
-from VoteMemeBot.Repository.i_repository import IRepository
-from VoteMemeBot.Repository.i_unit_of_work import IUnitOfWork
+from MemeVoteBot.Repository.VoteRepository.vote_repository import VoteRepository
+from MemeVoteBot.Repository.VoteRepository.i_vote_repository import IVoteRepository
+from MemeVoteBot.Repository.database import Database
+from MemeVoteBot.Repository.i_repository import IRepository
+from MemeVoteBot.Repository.i_unit_of_work import IUnitOfWork
 
 
 class UnitOfWork(IUnitOfWork):

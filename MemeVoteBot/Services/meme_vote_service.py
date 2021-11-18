@@ -1,11 +1,11 @@
-from VoteMemeBot.Models.vote import Vote
-from VoteMemeBot.Repository.VoteRepository.vote_repository import VoteRepository
-from VoteMemeBot.Repository.unit_of_work import UnitOfWork
-from VoteMemeBot.Models.meme import Meme
-from VoteMemeBot.Exceptions.meme_exceptions import *
+from MemeVoteBot.Models.vote import Vote
+from MemeVoteBot.Repository.VoteRepository.vote_repository import VoteRepository
+from MemeVoteBot.Repository.unit_of_work import UnitOfWork
+from MemeVoteBot.Models.meme import Meme
+from MemeVoteBot.Exceptions.meme_exceptions import *
 
 
-class VoteMemeService:
+class MemeVoteService:
     def __init__(self):
         self.unit_of_work = UnitOfWork()
 

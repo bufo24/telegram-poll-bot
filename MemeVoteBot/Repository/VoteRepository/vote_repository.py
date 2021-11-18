@@ -1,6 +1,6 @@
-from VoteMemeBot.Exceptions.database_exceptions import NoResult
-from VoteMemeBot.Models.vote import Vote
-from VoteMemeBot.Repository.VoteRepository.i_vote_repository import IVoteRepository
+from MemeVoteBot.Exceptions.database_exceptions import NoResult
+from MemeVoteBot.Models.vote import Vote
+from MemeVoteBot.Repository.VoteRepository.i_vote_repository import IVoteRepository
 
 
 class VoteRepository(IVoteRepository):

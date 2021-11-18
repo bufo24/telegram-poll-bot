@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer
 
-from VoteMemeBot.Repository.database import Base
+from MemeVoteBot.Repository.database import Base
 
 
 class Vote(Base):

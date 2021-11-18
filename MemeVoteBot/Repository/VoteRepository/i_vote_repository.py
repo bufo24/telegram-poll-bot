@@ -1,5 +1,5 @@
-from VoteMemeBot.Models.vote import Vote
-from VoteMemeBot.Repository.repository import Repository
+from MemeVoteBot.Models.vote import Vote
+from MemeVoteBot.Repository.repository import Repository
 
 
 class IVoteRepository(Repository[Vote]):
