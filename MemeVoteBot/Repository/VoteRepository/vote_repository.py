@@ -1,12 +1,9 @@
-import datetime
-
-from Exceptions.database_exceptions import NoResult
-from Models.vote import Vote
-from Repository.VoteRepository.i_vote_repository import IVoteRepository
+from MemeVoteBot.Exceptions.database_exceptions import NoResult
+from MemeVoteBot.Models.vote import Vote
+from MemeVoteBot.Repository.VoteRepository.i_vote_repository import IVoteRepository
 
 
 class VoteRepository(IVoteRepository):
-
     def __init__(self, database):
         self.Model = Vote
         super().__init__(database)
