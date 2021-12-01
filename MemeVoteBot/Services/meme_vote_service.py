@@ -25,3 +25,6 @@ class MemeVoteService:
         vote = Vote(user_id, meme_id, points)
         self.unit_of_work.get_vote_repository().add(vote)
         self.unit_of_work.complete()
+
+    def get_points_per_meme(self) -> list:
+        return self.unit_of_work.get_vote_repository().get_all_points()

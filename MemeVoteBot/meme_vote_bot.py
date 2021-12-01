@@ -1,5 +1,5 @@
 from MemeVoteBot.Controllers.meme_vote_controller import MemeVoteController
-from telegram import Update
+from telegram import Update, ParseMode
 from telegram.ext import Updater, CommandHandler, CallbackContext
 
 from config import token
@@ -8,7 +8,7 @@ from config import token
 class MemeVoteBot:
 
     def __init__(self):
-        self.vote_meme_controller = MemeVoteController()
+        self.meme_vote_controller = MemeVoteController()
         self.updater = Updater(token)
         self.__start_handlers()
         self.updater.start_polling()
@@ -16,6 +16,7 @@ class MemeVoteBot:
 
     def __start_handlers(self):
         self.updater.dispatcher.add_handler(CommandHandler('vote', self.vote_command))
+        self.updater.dispatcher.add_handler(CommandHandler('votes', self.votes_command))
 
     # /vote 10 22 14
     # where the numbers are the meme IDs
@@ -33,7 +34,19 @@ class MemeVoteBot:
         else:
             try:
                 votes = [int(i) for i in args]
-                self.vote_meme_controller.add_votes(user_id, votes)
+                self.meme_vote_controller.add_votes(user_id, votes)
             except Exception as e:
                 update.message.reply_text(explanation_text)
+                return
             update.message.reply_text("Votes submitted!")
+
+    def votes_command(self, update: Update, context: CallbackContext) -> list:
+        try:
+            tuples = self.meme_vote_controller.get_all_points()
+            msg = ""
+            for tuple in tuples:
+                msg = msg + "Meme ID: " + str(tuple[0]) + \
+                    " has " + str(tuple[1]) + " points\n"
+            update.message.reply_text(msg)
+        except Exception as e:
+            update.message.reply_text(str(e))
